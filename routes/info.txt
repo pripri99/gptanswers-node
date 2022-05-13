@@ -1,0 +1,4 @@
+This app was built using JavaScript and Node.JS.<|endoftext|><end>
+The app has a simple HTML form that users can use to submit questions.<|endoftext|><end>
+GPT-3 will use documents provided by the developer as a knowledge base to derive answers from.<|endoftext|><end>
+This is an example application that can be used to learn how to build apps using the OpenAI API.<|endoftext|><end>

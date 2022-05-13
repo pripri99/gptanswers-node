@@ -4,18 +4,36 @@ const express = require('express');
 const router = express.Router();
 
 const apiKey = process.env.OPENAI_API_KEY;
+//const mySecret = process.env['OPENAI_API_KEY']
 const client = axios.create({
   headers: { 'Authorization': 'Bearer ' + apiKey }
 });
 
+var data = []
+
+var fs = require('fs');
+try {  
+    data = fs.readFileSync('routes/info.txt', 'utf8').toString().split("<end>");
+    for(i in data) {
+        console.log(data[i]);
+      console.log();
+    }
+    console.log(data.toString());    
+} catch(e) {
+    console.log(data);
+    console.log('Error:', e.stack);
+}
+
 // Add your documents here. These will be used to answer questions. You can add up to 200.
 // Alternately, you can store documents in a file. See: https://beta.openai.com/docs/api-reference/answers 
-const documents = [
+/*const documents = [
   "This app was built using JavaScript and Node.JS.<|endoftext|>",
   "The app has a simple HTML form that users can use to submit questions.<|endoftext|>",
   "GPT-3 will use documents provided by the developer as a knowledge base to derive answers from.<|endoftext|>",
   "This is an example application that can be used to learn how to build apps using the OpenAI API.<|endoftext|>"
-]
+]*/
+
+const documents = data
 
 const endpoint = 'https://api.openai.com/v1/answers';
 
